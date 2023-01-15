@@ -1,0 +1,13 @@
+SELECT "name" AS Category,
+
+	     AVG (rental_duration) AS Average_Rental_Duration,
+	     AVG (rental_rate) AS Average_Rental_Fee
+
+FROM film A
+
+	     JOIN film_category B ON A.film_id = B.film_id
+	     JOIN category C ON B.category_id = C.category_id
+	
+GROUP BY "name"
+
+ORDER BY AVG (rental_rate) DESC;
